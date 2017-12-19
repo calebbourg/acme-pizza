@@ -1,5 +1,5 @@
 require File.expand_path('../boot', __FILE__)
-
+require 'yaml' #fix for uninitialized constant Rails::Application::YAML (NameError) https://thedoomba.wordpress.com/2017/05/01/yaml-error-on-rails-g-deviseinstall/
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
