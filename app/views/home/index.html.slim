@@ -1,2 +1,15 @@
-.columns.is-siz-1.has-text-centered
-  |Hey
+.container.is-fluid
+	.columns.home-index
+
+	  .column.is-12.home-index__role-boxes
+	    .columns
+		  .column
+		    .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
+		      |Cook
+		  .column
+		    .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
+		      |Cashier
+		  .column
+		    - if current_user.manager
+			  .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
+		        |Manager
