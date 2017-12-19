@@ -38,6 +38,7 @@ puts '***** creating orders ********'
   30.times do
   	sizes = Order::PIZZA_SIZES
   	types = Order::PIZZA_TYPES
+    statuses = %w( pending processing pick_up completed)
   	ids = User.pluck(:id)
     user = User.find(ids.sample)
     order =user.orders.new(
@@ -45,7 +46,8 @@ puts '***** creating orders ********'
     	customer_name: Faker::Name.name,
     	pick_up: DateTime.now,
     	pizza_type: types.sample,
-    	pizza_size: sizes.sample
+    	pizza_size: sizes.sample,
+      status: statuses.sample
     	)
     order.save!
 
