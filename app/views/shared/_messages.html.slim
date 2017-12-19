@@ -1,0 +1,12 @@
+
+- if flash[:notice].present? 
+  .notification.is-info
+    = flash[:notice]
+
+- if flash[:success].present?
+  .notification.is-success
+    = flash[:success]
+
+- if flash[:alert].present?
+  .notification.is-warning
+    = flash[:alert]
