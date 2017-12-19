@@ -1,0 +1,18 @@
+.columns
+  .column.is-6.is-offset-3
+    .has-text-centered.is-size-1
+      |Acme Pizza
+
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
+      .has-text-centered
+        .field
+          .control
+            input.input type="email" required="required" placeholder="Email" name="user[email]"
+        .field
+          .control
+            input.input type="password" required="required" name="user[password]"
+        .has-text-centered
+        button.button.is-primary type="submit"
+          |Log In
+        br
+        = render "devise/shared/links" 
