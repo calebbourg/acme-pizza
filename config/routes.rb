@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :orders
 
+  namespace :cashier, module: 'cashier' do
+    resources :dashboards, only: [:index]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
