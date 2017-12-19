@@ -1,0 +1,20 @@
+table.table
+        thead
+          tr
+          	th Order Number
+            th Type
+            th Size
+            th Pick Up Time
+            th Status
+            th Customer Phone
+            th Customer Name
+        tbody
+          - orders.each do |order|
+            tr
+              td = order.id
+              td = order.pizza_type
+              td = order.pizza_size
+              td = order.pick_up
+              td = order.status
+              td = order.customer_phone
+              td = order.customer_name

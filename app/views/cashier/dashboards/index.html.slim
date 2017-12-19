@@ -1,0 +1,22 @@
+.container.is-fluid.cashier-dashboards-index
+  .columns
+    .column.is-8.is-offset-2
+      .has-text-centered.is-size-1
+        |Pending Orders
+      .pending-orders
+         = render partial: 'shared/orders_table', locals: { orders: @pending_orders }
+      br
+      .has-text-centered.is-size-1
+        |Processing Orders
+      .processing-orders
+        = render partial: 'shared/orders_table', locals: { orders: @processing_orders }
+      br
+      .has-text-centered.is-size-1
+        |Orders Ready for Pick Up
+      .pick-up-orders
+        = render partial: 'shared/orders_table', locals: { orders: @orders_ready_for_pick_up }
+
+
+
+
+          	

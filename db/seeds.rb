@@ -35,7 +35,7 @@ puts '******** users created *********'
 
 puts '***** creating orders ********'
 
-  30.times do
+  30.times do |i|
   	sizes = Order::PIZZA_SIZES
   	types = Order::PIZZA_TYPES
     statuses = %w( pending processing pick_up completed)
@@ -44,7 +44,7 @@ puts '***** creating orders ********'
     order =user.orders.new(
     	customer_phone: Faker::PhoneNumber.phone_number,
     	customer_name: Faker::Name.name,
-    	pick_up: DateTime.now,
+    	pick_up: DateTime.now + i.hours,
     	pizza_type: types.sample,
     	pizza_size: sizes.sample,
       status: statuses.sample
