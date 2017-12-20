@@ -1,6 +1,6 @@
 module Cashier
   class DashboardsController < ApplicationController
-	  
+	    before_action :check_roles
     def index
       @role = 'baker'
       @pending_orders = Order.pending.order(pick_up: :desc).limit(3)
