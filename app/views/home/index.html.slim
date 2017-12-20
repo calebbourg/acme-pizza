@@ -4,13 +4,14 @@
 	  .column.is-12.home-index__role-boxes
 	    .columns
 		  .column
-		    .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
-		      |Cook
+		    = link_to baker_dashboards_path do
+			  .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
+			    |Baker
 		  .column
 		    = link_to cashier_dashboards_path do
 			    .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
 			      |Cashier
-		    - if current_user.manager
+		  - if current_user.manager
 		      .column
 			    .card.has-text-centered.home-index__role-boxes__role-box.is-size-1
 		          |Manager

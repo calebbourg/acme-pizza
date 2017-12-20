@@ -10,14 +10,14 @@ RSpec.describe 'Home Index', type: :feature do
     login_as(manager_user, scope: :user)
     visit '/'
     expect(page).to have_content 'Manager'
-    expect(page).to have_content 'Cook'
+    expect(page).to have_content 'Baker'
     expect(page).to have_content 'Cashier'
   end
   it 'does not have options for manager is user is not manager' do
     login_as(non_manager_user, scope: :user)
     visit '/'
     expect(page).to_not have_content 'Manager'
-    expect(page).to have_content 'Cook'
+    expect(page).to have_content 'Baker'
     expect(page).to have_content 'Cashier'
   end
 end

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index]
   end
 
+  namespace :baker, module: 'baker' do
+    resources :dashboards, only: [:index]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
