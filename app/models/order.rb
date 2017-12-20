@@ -7,5 +7,4 @@ class Order < ActiveRecord::Base
 
   PIZZA_TYPES = %w( cheese pepperoni hawaiian veggie )
   PIZZA_SIZES = %w( small medium large )
-
 end

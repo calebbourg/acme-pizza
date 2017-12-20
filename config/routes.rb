@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index]
   end
 
-  namespace :manager, module: 'baker' do
+  namespace :manager, module: 'manager' do
     resources :dashboards, only: [:index]
   end
 

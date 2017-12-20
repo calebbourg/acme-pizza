@@ -1,0 +1,27 @@
+.card
+  .has-text-centered.is-size-2
+    |Current Order
+    .is-size-3
+      = "Pick up Time: #{order.pick_up.strftime('%l:%M %p')}"
+
+  .column.has-text-centered
+    strong Time Started:
+    =  " #{order.pick_up.strftime('%l:%M %p')}"
+    br
+    br
+    strong Baker:
+    = " #{current_user.email}"
+    br
+    br
+    strong Pizza Type:
+    = " #{order.pizza_type}"
+    br
+    br
+    strong Pizza Size:
+    = "  #{order.pizza_size}"
+    br 
+    br
+    button.button.is-primary
+      |Order Finished
+
+
