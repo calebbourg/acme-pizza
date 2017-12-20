@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
+
+  def cashier?
+    roles.keys.include?('cashier')
+  end
+
+  def baker?
+    roles.keys.include?('baker')
+  end
 end

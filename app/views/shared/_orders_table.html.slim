@@ -3,4 +3,4 @@
     = order_status
   - orders.each do |order|
     .panel-block
-      = render partial: 'shared/order', locals: { order: order }
+      = render partial: "shared/#{order.status}_order", locals: { order: order }

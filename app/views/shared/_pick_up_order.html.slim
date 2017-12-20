@@ -1,0 +1,18 @@
+.column.is-12.has-text-centered
+  strong.is-size-5 = "Pick Up Time: #{order.pick_up.strftime('%l:%M %p')}"
+  .columns
+	.column.is-half
+	  strong Pizza Information
+	  br
+	  = " #{order.pizza_size} #{order.pizza_type}"
+	.column.is-half
+	  strong Customer Information
+	  br
+	  = " #{order.customer_name}"
+	  br
+	  = " #{order.customer_phone}"
+  .columns
+    .column.is-12
+      - if @role == 'cashier'
+        button.button.is-primary
+          | Order Completed

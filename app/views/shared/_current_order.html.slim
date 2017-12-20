@@ -21,7 +21,8 @@
     = "  #{order.pizza_size}"
     br 
     br
-    button.button.is-primary
-      |Order Finished
+    - if @role == 'baker'
+      button.button.is-primary
+        |Order Ready
 
 

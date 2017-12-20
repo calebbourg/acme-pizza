@@ -11,3 +11,8 @@
 	  = " #{order.customer_name}"
 	  br
 	  = " #{order.customer_phone}"
+  .columns
+    .column.is-12
+      - if @role == 'baker' && !@current_order
+        button.button.is-primary
+          |Start Order
