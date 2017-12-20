@@ -23,10 +23,15 @@ puts '******* manager created *******'
 puts '**** creating users s*******'
 
   6.times do
+    available_roles = %w( baker cashier )
+    role = available_roles.sample
     user = User.new(
     	email: Faker::Internet.email,
     	password: 'password',
-    	password_confirmation: 'password'
+    	password_confirmation: 'password',
+      roles: {
+        role => true
+      }
     	)
     user.save!
     puts "******** created user: #{user.id}******"
