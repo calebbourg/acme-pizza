@@ -51,4 +51,15 @@ RSpec.describe Order, type: :model do
       expect(order2.errors.full_messages).to include("Current order has already been taken")
     end
   end
+
+  describe 'today_orders' do
+    it 'lists orders with pick up time for today' do
+      @today_order1 = FactoryBot.create(:order, pick_up: DateTime.now + 1.minute)
+      @today_order2 = FactoryBot.create(:order, pick_up: DateTime.now + 1.hour)
+      @tomorrow_order = FactoryBot.create(:order, pick_up: DateTime.now + 1.day)
+      expect(Order.today_orders).to include(@today_order1)
+      expect(Order.today_orders).to include(@today_order2)
+      expect(Order.today_orders).to_not include(@tomorrow_order)
+    end
+  end
 end

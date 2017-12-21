@@ -6,6 +6,7 @@ class Order < ActiveRecord::Base
   scope :ready_for_pick_up, -> { where(status: 'pick_up') }
   scope :completed, -> { where(status: 'completed') }
   scope :is_current_order, -> { where(current_order: true) }
+  scope :today_orders, -> { where("pick_up > ? AND pick_up < ?", DateTime.now.beginning_of_day, DateTime.now.end_of_day)}
   validate :pick_up_must_be_in_future
   validate :only_one_current_order_update
   validates_uniqueness_of :current_order, conditions: -> { where(current_order: true) } 
