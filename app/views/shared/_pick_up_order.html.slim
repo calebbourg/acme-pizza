@@ -14,5 +14,6 @@
   .columns
     .column.is-12
       - if @role == 'cashier'
-        button.button.is-primary
-          | Order Completed
+        = link_to cashier_dashboards_complete_order_path(order), method: :put do 
+          button.button.is-primary
+            | Order Completed

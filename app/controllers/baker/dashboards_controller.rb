@@ -18,7 +18,7 @@ module Baker
       if @order.save!
         redirect_to baker_dashboards_path, notice: 'You finished an Order!'
       else
-      	redirect_to baker_dashboards_path, warn: 'Something went wrong.'
+      	redirect_to baker_dashboards_path, error: 'Something went wrong.'
       end
     end
 

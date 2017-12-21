@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :cashier, module: 'cashier' do
     resources :dashboards, only: [:index]
+    put 'dasboards/complete_order/:order_id', to: 'dashboards#complete_order', as: :dashboards_complete_order
   end
 
   namespace :baker, module: 'baker' do
