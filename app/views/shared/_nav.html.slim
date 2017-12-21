@@ -1,0 +1,10 @@
+nav.navbar role="navigation" aria-label="main navigation"
+  .navbar-menu
+    .navbar-start
+        - if current_user.present?
+          .navbar-item
+
+            = link_to 'Sign Out', destroy_user_session_path(current_user), method: :delete
+          .navbar-item
+            = link_to 'Home', root_path
+
