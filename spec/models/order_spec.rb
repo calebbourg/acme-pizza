@@ -19,5 +19,36 @@ RSpec.describe Order, type: :model do
       order.save
       expect(order.errors.full_messages).to include('Pick up Must be in future')
     end
+
+    it 'is valid if current order and no other current orders' do
+      order1 = Order.create(valid_attributes)
+      order2 = Order.new(valid_attributes.merge(
+      	current_order: true
+      	))
+      expect(order2).to be_valid
+    end
+
+    it 'is not valid on update if current order and current order already exists' do
+      order1 = Order.create(valid_attributes.merge(
+      	current_order: true
+      	))
+      order2 = Order.create(valid_attributes)
+      order2.current_order = true
+      expect(order2).to_not be_valid
+      order2.save
+      expect(order2.errors.full_messages).to include("Current order One at a Time")
+    end
+
+    it 'is not valid if current order and current order already exists' do
+      order1 = Order.create(valid_attributes.merge(
+        current_order: true
+        ))
+      order2 = Order.new(valid_attributes.merge(
+        current_order: true
+        ))
+      expect(order2).to_not be_valid
+      order2.save
+      expect(order2.errors.full_messages).to include("Current order has already been taken")
+    end
   end
 end

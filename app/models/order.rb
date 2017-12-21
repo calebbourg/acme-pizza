@@ -5,7 +5,10 @@ class Order < ActiveRecord::Base
   scope :processing, -> { where(status: 'processing') }
   scope :ready_for_pick_up, -> { where(status: 'pick_up') }
   scope :completed, -> { where(status: 'completed') }
+  scope :is_current_order, -> { where(current_order: true) }
   validate :pick_up_must_be_in_future
+  validate :only_one_current_order_update
+  validates_uniqueness_of :current_order, conditions: -> { where(current_order: true) } 
 
   PIZZA_TYPES = %w( cheese pepperoni hawaiian veggie )
   PIZZA_SIZES = %w( small medium large )
@@ -15,6 +18,12 @@ class Order < ActiveRecord::Base
   def pick_up_must_be_in_future
     if pick_up < DateTime.now
     	errors.add(:pick_up, 'Must be in future')
+    end
+  end
+
+  def only_one_current_order_update
+    if Order.is_current_order.present? && Order.is_current_order.where("id != ?", id).present?
+    	errors.add(:current_order, "One at a Time")
     end
   end
 end
