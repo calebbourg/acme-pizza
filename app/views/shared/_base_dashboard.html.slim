@@ -17,3 +17,8 @@
       .column.is-12
         - if current_order
           = render partial: 'shared/current_order', locals: { order: current_order }
+    - if @role == 'manager'
+
+      .columns
+        .column.is-12
+          = render partial: 'shared/orders_table', locals: { orders: completed_orders, order_status: 'Completed Today'}

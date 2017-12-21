@@ -1,0 +1,32 @@
+.column.is-12.has-text-centered
+  strong.is-size-5 = "Pick Up Time: #{order.pick_up.strftime('%l:%M %p')}"
+  br
+  .is-size-3 = "Time Completed: #{order.finish_time.strftime('%l:%M %p')}"
+  .columns
+	.column.is-half
+	  strong Pizza Information
+	  br
+	  = " #{order.pizza_size} #{order.pizza_type}"
+	.column.is-half
+	  strong Customer Information
+	  br
+	  = " #{order.customer_name}"
+	  br
+	  = " #{order.customer_phone}"
+  .columns
+    .column.is-half
+      strong Time Started
+      br
+      = "  #{order.start_time.strftime('%l:%M %p')}"
+      br
+      Strong Time Finished
+      br
+      = " #{order.completed_time.strftime('%l:%M %p')}"
+    .column.is-half
+      strong Baker
+      br
+      = " #{order.baker.email}"
+      br
+      strong Cashier
+      br 
+      = " #{order.cashier.email}"

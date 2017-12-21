@@ -40,10 +40,10 @@ puts '******** users created *********'
 
 puts '***** creating orders ********'
 
-  30.times do |i|
+  10.times do |i|
   	sizes = Order::PIZZA_SIZES
   	types = Order::PIZZA_TYPES
-    statuses = %w( pending processing pick_up completed)
+    statuses = %w( pending )
     cashiers = User.all.select { |user| user.roles.keys.include?('cashier') }
   	ids = User.pluck(:id)
     user = User.find(ids.sample)
