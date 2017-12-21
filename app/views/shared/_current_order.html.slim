@@ -9,6 +9,10 @@
     =  " #{order.pick_up.strftime('%l:%M %p')}"
     br
     br
+    strong Cashier:
+    = " #{order.cashier.email}"
+    br
+    br
     strong Baker:
     = " #{current_user.email}"
     br
