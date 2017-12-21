@@ -14,3 +14,30 @@ rake db:seed
 Frontend framework
 
   bulma.io
+
+sign in credentials:
+
+Manager
+  email: manager@acmepizza.com
+  password: password
+Baker
+  email: baker@acmepizza.com 
+  password: password
+Casher
+  email: cashier@acmepizza.com
+  password: password
+Baker/Cashier
+  email: baker_cashier@acmepizza.com
+  password: password
+
+
+Basic Assumption:
+
+  - Managers may need to jump in and fullfull other roles (full access)
+  
+  - Managers will add employees manually ( this is not implemented accounts are created by rake db:seed ).
+
+  - Only one current Order at any given time.
+
+  - Ideally all of this would happen async in real time.
+    in lieu of this each action causes a redirect/refresh in order for data to be updated in views. No ajax requests.

@@ -19,6 +19,41 @@ manager.save!
 
 puts '******* manager created *******'
 
+puts '****** creating cashier ********'
+
+cashier = User.new(
+  email: 'cashier@acmepizza.com',
+  password: 'password',
+  password_confirmation: 'password',
+  roles: { cashier: true }
+  )
+cashier.save!
+
+puts " ******** cashier created ******"
+
+puts '****** creating baker ********'
+
+baker = User.new(
+  email: 'baker@acmepizza.com',
+  password: 'password',
+  password_confirmation: 'password',
+  roles: { baker: true }
+  )
+baker.save!
+
+puts " ******** baker created ******"
+
+puts '****** creating baker/cashier ********'
+
+bakercashier = User.new(
+  email: 'baker_cashier@acmepizza.com',
+  password: 'password',
+  password_confirmation: 'password',
+  roles: { cashier: true, baker: true }
+  )
+bakercashier.save!
+
+puts " ******** baker/cashier created ******"
 
 puts '**** creating users s*******'
 
