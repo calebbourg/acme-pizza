@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def check_roles
     requested_role = request.path.split('/')[1]
     user_roles = current_user.roles.keys
-    redirect_to root_path, notice: 'You do not have this role.' unless user_roles.include?(requested_role) 
+    redirect_to root_path, notice: 'You do not have this role.' unless user_roles.include?(requested_role) || current_user.manager
   end
    
    # formats multiple errors for flash messages
