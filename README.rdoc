@@ -1,28 +1,16 @@
-== README
+requirements
+ ruby 2.3
+ rails 4.2
+ PostgreSQL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setup
+git clone git@github.com:calebbourg/acme-pizza.git
+cd acme-pizza
+bundle install
+rake db:create db:migrate
+rake db:seed
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Frontend framework
+
+  bulma.io
