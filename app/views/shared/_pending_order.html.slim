@@ -14,5 +14,6 @@
   .columns
     .column.is-12
       - if @role == 'baker' && !@current_order
-        button.button.is-primary
-          |Start Order
+        = link_to baker_dashboards_start_order_path(order), method: :put do
+          button.button.is-primary#start-order-button
+            |Start Order
