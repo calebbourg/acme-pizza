@@ -7,26 +7,26 @@
        = form_for @order, method: :post do |f|
           .field
             .control
-              input.input type="text" name="order[customer_phone]" required="required" placeholder="Customer Phone"
+              input.input type="text" name="order[customer_phone]" required="required" placeholder="Customer Phone (ex. 5555555555)" data-parsley-required="true" data-parsley-phone-format="true" 
           .field
             .control
-              input.input type="text" name="order[customer_name]" required="required" placeholder="Customer Name" 
+              input.input type="text" name="order[customer_name]" required="required" placeholder="Customer Name" data-parsley-required="true"  
           .field.is-grouped
             .control
               label.label Pizza Type
               .select.is-primary
-                select name="order[pizza_type]" required="required"
+                select name="order[pizza_type]" required="required" data-parsley-required="true" 
                   - Order::PIZZA_TYPES.each do |pizza_type|
                     option = pizza_type
             .control
               label.label Pizza Size
               .select.is-primary
-                select name="order[pizza_size]" required="required"
+                select name="order[pizza_size]" required="required" data-parsley-required="true" 
                   - Order::PIZZA_SIZES.each do |pizza_size|
                     option = pizza_size
           .field
             label.label Pick Up Time
             .control
-              input.input type="datetime-local" name="order[pick_up]" required="required" 
+              input.input type="datetime-local" name="order[pick_up]" required="required" data-parsley-date-future="true" data-parsley-required="true" 
           button.button.is-primary
             |Save Order

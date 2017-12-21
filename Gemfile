@@ -29,6 +29,7 @@ gem 'devise'
 # front-end
 gem "bulma-rails", "~> 0.6.1"
 gem "slim-rails"
+gem "parsley-rails" #browser validations
 
 
 # Use ActiveModel has_secure_password

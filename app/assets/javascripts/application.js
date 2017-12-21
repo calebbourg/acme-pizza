@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require parsley
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree ./validations
 //= require_tree .
