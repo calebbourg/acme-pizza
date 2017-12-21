@@ -44,15 +44,17 @@ puts '***** creating orders ********'
   	sizes = Order::PIZZA_SIZES
   	types = Order::PIZZA_TYPES
     statuses = %w( pending processing pick_up completed)
+    cashiers = User.all.select { |user| user.roles.keys.include?('cashier') }
   	ids = User.pluck(:id)
     user = User.find(ids.sample)
-    order =user.orders.new(
+    order = Order.new(
     	customer_phone: Faker::PhoneNumber.phone_number,
     	customer_name: Faker::Name.name,
-    	pick_up: DateTime.now + i.hours,
+    	pick_up: DateTime.now + 1.hour + i.hours,
     	pizza_type: types.sample,
     	pizza_size: sizes.sample,
-      status: statuses.sample
+      status: statuses.sample,
+      cashier_id: cashiers.sample.id
     	)
     order.save!
 

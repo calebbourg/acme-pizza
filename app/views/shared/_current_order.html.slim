@@ -26,7 +26,8 @@
     br 
     br
     - if @role == 'baker'
-      button.button.is-primary
-        |Order Ready
+      = link_to baker_dashboards_order_ready_path(order), method: :put do
+        button.button.is-primary
+          |Order Ready
 
 

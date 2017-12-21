@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :baker, module: 'baker' do
     resources :dashboards, only: [:index]
+    put 'dashboards/order_ready/:order_id', to: 'dashboards#order_ready', as: :dashboards_order_ready
   end
 
   namespace :manager, module: 'manager' do
