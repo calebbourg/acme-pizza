@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.cashier_id = current_user.id
     if @order.save
       redirect_to cashier_dashboards_path, notice: 'Order Created'
     else

@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :cashier, class_name: 'User', foreign_key: :cashier_id
+  belongs_to :baker, class_name: 'User', foreign_key: :baker_id
   scope :pending, -> { where(status: 'pending') }
   scope :processing, -> { where(status: 'processing') }
   scope :ready_for_pick_up, -> { where(status: 'pick_up') }
