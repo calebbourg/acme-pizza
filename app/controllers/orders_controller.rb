@@ -5,8 +5,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(order_params)
-    redirect_to cashier_dashboards_path, notice: 'Order Created'
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to cashier_dashboards_path, notice: 'Order Created'
+    else
+      flash[:alert] = errors_for(@order)
+      redirect_to new_order_path
+    end
   end
 
 

@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
     user_roles = current_user.roles.keys
     redirect_to root_path, notice: 'You do not have this role.' unless user_roles.include?(requested_role) 
   end
+   
+   # formats multiple errors for flash messages
+  def errors_for(resource)
+    @errors_string = ""
+    resource.errors.full_messages.each do |msg|
+      @errors_string << "#{msg} "
+    end
+    @errors_string
+  end
 end
