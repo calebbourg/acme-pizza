@@ -1,9 +1,10 @@
 .has-text-centered.is-size-1
   = "#{role.capitalize} Dashboard"
   br
-  = link_to new_order_path
-    button.button.is-primary 
-      | New Order
+  - if @role == 'cashier'
+    = link_to new_order_path
+      button.button.is-primary 
+        | New Order
 
 .columns
   .column.is-10.is-offset-1
