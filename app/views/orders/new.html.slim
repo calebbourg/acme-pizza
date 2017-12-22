@@ -7,7 +7,7 @@
        = form_for @order, method: :post do |f|
           .field
             .control
-              input.input type="text" name="order[customer_phone]" required="required" placeholder="Customer Phone (ex. 5555555555)" data-parsley-required="true" data-parsley-phone-format="true" 
+              input.input#customer_phone type="text" name="order[customer_phone]" required="required" placeholder="Customer Phone (ex. 5555555555)" data-parsley-required="true" data-parsley-phone-format="true" 
           .field
             .control
               input.input type="text" name="order[customer_name]" required="required" placeholder="Customer Name" data-parsley-required="true"  
@@ -27,6 +27,6 @@
           .field
             label.label Pick Up Time
             .control
-              input.input type="datetime-local" name="order[pick_up]" required="required" data-parsley-date-future="true" data-parsley-required="true" 
+              input.input#pick_up type="datetime-local" name="order[pick_up]" required="required" data-parsley-date-future="true" data-parsley-required="true" 
           button.button.is-primary
             |Save Order
