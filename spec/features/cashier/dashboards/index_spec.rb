@@ -1,27 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe 'dashboards index', type: :feature do
-  let(:user) { create(:user) }
-  let(:pending_order) { create(:order, status: 'pending') }
-  let(:processing_order) { create(:order, status: 'processing') }
-  let(:order_for_pick_up) { create(:order, status: 'pick_up') }
+  let(:user) { create(:user, roles: { cashier: true } ) }
   
   before(:each) do
     login_as(user, scope: :user)
+    @pending_order = FactoryBot.create(:order, status: 'pending', cashier_id: user.id, baker_id: user.id)
+    @current_order = FactoryBot.create(:order, status: 'processing', current_order: true, cashier_id: user.id, baker_id: user.id) 
+    @finished_order = FactoryBot.create(:order, status: 'pick_up', cashier_id: user.id, baker_id: user.id)
   end
 
   it 'shows pending orders' do
     visit '/cashier/dashboards'
-    expect(page).to have_css('.pending-orders')
+    expect(page).to have_css('.pending-order')
   end
 
-  it 'shows orders in process' do
+  it 'shows current order' do
   	visit '/cashier/dashboards'
-    expect(page).to have_css('.processing-orders')
+    expect(page).to have_css('.current-order')
   end
 
-  it 'shows completed orders ready for pickup' do
+  it 'shows finished orders ready for pickup' do
     visit '/cashier/dashboards'
-    expect(page).to have_css('.pick-up-orders')
+    expect(page).to have_css('.pick-up-order')
   end
+
 end

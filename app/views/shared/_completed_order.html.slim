@@ -1,7 +1,7 @@
 .column.is-12.has-text-centered
   strong.is-size-5 = "Pick Up Time: #{order.pick_up.strftime('%l:%M %p')}"
   br
-  .is-size-3 = "Time Completed: #{order.finish_time.strftime('%l:%M %p')}"
+  .is-size-3 = "Time Completed: #{order.completed_time.strftime('%l:%M %p')}"
   .columns
 	.column.is-half
 	  strong Pizza Information
@@ -21,7 +21,7 @@
       br
       Strong Time Finished
       br
-      = " #{order.completed_time.strftime('%l:%M %p')}"
+      = " #{order.finish_time.strftime('%l:%M %p')}"
     .column.is-half
       strong Baker
       br
