@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+  skip_before_action :check_roles  
   def new
     @order = Order.new
   end
