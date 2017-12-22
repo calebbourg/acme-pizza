@@ -4,11 +4,11 @@ requirements
  PostgreSQL
 
 Setup
-git clone git@github.com:calebbourg/acme-pizza.git
-cd acme-pizza
-bundle install
-rake db:create db:migrate
-rake db:seed
+  git clone git@github.com:calebbourg/acme-pizza.git
+  cd acme-pizza
+  bundle install
+  rake db:create db:migrate
+  rake db:seed
 
 
 Frontend framework
